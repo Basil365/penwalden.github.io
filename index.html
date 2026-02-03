@@ -1,27 +1,126 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Damian Bown Consulting</title>
-<style>
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  margin: 60px;
-  max-width: 700px;
-  color: #333;
-  line-height: 1.6;
-}
-h1 {
-  font-weight: 600;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Penwalden</title>
+  <style>
+    :root{
+      --bg: #103B3A;
+      --fg: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.78);
+
+      /* softer watermark */
+      --ticket-stroke: rgba(255,255,255,.11);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      overflow: hidden;
+    }
+
+    .wrap{
+      position: relative;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 60px 28px;
+      isolation: isolate;
+      text-align: left;
+    }
+
+    /* Ticket watermark */
+    .ticket-mark{
+      position: absolute;
+
+      /* balanced position */
+      inset: auto auto 8% -10%;
+
+      width: min(760px, 95vw);
+      transform: rotate(30deg);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .ticket-mark path,
+    .ticket-mark line{
+      stroke: var(--ticket-stroke);
+      stroke-width: 18;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ticket-mark .detail{
+      stroke-width: 10;
+      stroke-dasharray: 20 22;
+      opacity: .85;
+    }
+
+    /* text container without box */
+    .card{
+      width: min(720px, 92vw);
+    }
+
+    h1{
+      margin: 0 0 14px;
+      font-size: clamp(30px, 4vw, 42px);
+      letter-spacing: -0.02em;
+      font-weight: 650;
+    }
+
+    p{
+      margin: 0;
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 40ch;
+    }
+
+    @media (max-width: 420px){
+      .wrap{ padding: 48px 20px; }
+      p{ font-size: 16px; }
+    }
+  </style>
 </head>
+
 <body>
-<h1>Damian Bown Consulting</h1>
+  <main class="wrap">
+    <svg class="ticket-mark" viewBox="0 0 900 560" aria-hidden="true">
+      <path d="
+        M 140 110
+        Q 140 70 180 70
+        L 720 70
+        Q 760 70 760 110
+        L 760 190
+        Q 710 205 710 250
+        Q 710 295 760 310
+        L 760 450
+        Q 760 490 720 490
+        L 180 490
+        Q 140 490 140 450
+        L 140 310
+        Q 190 295 190 250
+        Q 190 205 140 190
+        Z" />
 
-<p>Independent mobility & transport consultancy.</p>
+      <line class="detail" x1="280" y1="120" x2="280" y2="480" />
+      <line class="detail" x1="340" y1="180" x2="680" y2="180" />
+      <line class="detail" x1="340" y1="240" x2="620" y2="240" />
+      <line class="detail" x1="340" y1="300" x2="660" y2="300" />
+    </svg>
 
-<p>Website under development.</p>
-
+    <section class="card">
+      <h1>Penwalden</h1>
+      <p>Independent mobility &amp; transport consultancy.</p>
+    </section>
+  </main>
 </body>
 </html>
