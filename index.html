@@ -9,9 +9,8 @@
       --bg: #103B3A;
       --fg: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.78);
-
-      /* softer watermark */
       --ticket-stroke: rgba(255,255,255,.11);
+      --footer: rgba(255,255,255,.45);
     }
 
     * { box-sizing: border-box; }
@@ -39,10 +38,7 @@
     /* Ticket watermark */
     .ticket-mark{
       position: absolute;
-
-      /* balanced position */
       inset: auto auto 8% -10%;
-
       width: min(760px, 95vw);
       transform: rotate(30deg);
       z-index: -1;
@@ -64,7 +60,6 @@
       opacity: .85;
     }
 
-    /* text container without box */
     .card{
       width: min(720px, 92vw);
     }
@@ -84,9 +79,20 @@
       max-width: 40ch;
     }
 
+    /* Footer */
+    footer{
+      position: fixed;
+      bottom: 14px;
+      right: 18px;
+      font-size: 12px;
+      color: var(--footer);
+      letter-spacing: .02em;
+    }
+
     @media (max-width: 420px){
       .wrap{ padding: 48px 20px; }
       p{ font-size: 16px; }
+      footer{ font-size: 11px; }
     }
   </style>
 </head>
@@ -122,5 +128,9 @@
       <p>Independent mobility &amp; transport consultancy.</p>
     </section>
   </main>
+
+  <footer>
+    Penwalden Ltd · UK Company No. 17007793
+  </footer>
 </body>
 </html>
